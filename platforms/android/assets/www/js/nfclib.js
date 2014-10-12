@@ -1,12 +1,11 @@
 
 setTimeout(function(){
 nfcOp.init();
-$( "#write" ).click(function() {
-  nfcOp.escribirTag();
-});
+alert("hhhh");
 },300);
 
 var nfcOp = {
+    linkwrite:"",
     init:function(){
         nfc.addNdefListener(
             nfcOp.ndefEvento,
@@ -71,22 +70,22 @@ var nfcOp = {
         nfc.addNdefListener(
             nfcOp.writeTag,
             function() {
-                console.log("Registrado para escritura");
+                alert("Listo para escribir");
             },
             function() {
-                console.log("Error al registrar para escritura");
+                alert("Error al activar");
             }
         );
     },
     writeTag: function(nfcEvent) {
         var mimeType = "text/ML";
-        var payload  = "Hola mundo";
+        var payload  = nfcOp.linkwrite;
         var message  = ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
-
+        console.log(payload);  
         nfc.write(
           [message],
           function () {
-            console.log("exito al escribir");
+            alert("exito al escribir");
           },
           function (reason) {
             console.log("error al intentar escribir");

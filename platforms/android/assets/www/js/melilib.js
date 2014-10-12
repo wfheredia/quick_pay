@@ -113,7 +113,38 @@ var meli = {
 				};				
 			});
 	},
+	cargarProducto: function(){
+
+        // recupera los datos del procuto con la api
+        var linktag="https://api.mercadolibre.com/items/"+meli.getUrlParameter("id");
+        nfcOp.linkwrite = meli.getUrlParameter("id");
+        $.get( linktag, function( data ) {
+				//$( "#info" ).html( data );
+				var lista = data;
+				console.log(JSON.stringify(data));  				
+					var itemLi = "<img src='"+lista.thumbnail+"'><h2>"+lista.title+"</h2>";
+                        itemLi +="   <p>"+lista.permalink+" </p>";						
+                        itemLi +="     <span class=\"ui-li-count\">$"+lista.price+" </span>";                        
+                    $("#detalleproducto").html( itemLi);
+                    $("#operacionestag").show();
 			
+			});
+
+
+	}, 
+	getUrlParameter: function(sParam)
+	{
+	    var sPageURL = window.location.search.substring(1);
+	    var sURLVariables = sPageURL.split('&');
+	    for (var i = 0; i < sURLVariables.length; i++) 
+	    {
+	        var sParameterName = sURLVariables[i].split('=');
+	        if (sParameterName[0] == sParam) 
+	        {
+	            return sParameterName[1];
+	        }
+	    }
+	},  		
 	/////////////////////// Procesa la url ///////////////////////////////////////////////
 	//  cartel de cargando    
 	//////////////////////////////////////////////////////////////////////////////////////
