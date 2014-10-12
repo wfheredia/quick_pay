@@ -121,6 +121,7 @@ C:\proyecto\quick_pay\platforms\android\assets\www\contenido.html \
 C:\proyecto\quick_pay\platforms\android\assets\www\cordova.js \
 C:\proyecto\quick_pay\platforms\android\assets\www\cordova_plugins.js \
 C:\proyecto\quick_pay\platforms\android\assets\www\css \
+C:\proyecto\quick_pay\platforms\android\assets\www\dialog_producto.html \
 C:\proyecto\quick_pay\platforms\android\assets\www\fonts \
 C:\proyecto\quick_pay\platforms\android\assets\www\img \
 C:\proyecto\quick_pay\platforms\android\assets\www\index.html \

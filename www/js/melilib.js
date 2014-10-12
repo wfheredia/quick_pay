@@ -106,7 +106,7 @@ var meli = {
 				console.log(JSON.stringify(data)); 
 				console.log(JSON.stringify(lista)); 
 				for (var i = lista.length-1; i >= 0; i--) {					
-					var itemLi = "<li><a href='#' data-transition=\"flip\"><img src='"+lista[i].thumbnail+"'><h2>"+lista[i].title+"</h2>";
+					var itemLi = "<li><a href='dialog_producto.html?id="+lista[i].id+ "' data-transition=\"flip\"><img src='"+lista[i].thumbnail+"'><h2>"+lista[i].title+"</h2>";
                         itemLi +="   <p>"+lista[i].permalink+" </p>";						
                         itemLi +="    </a> <span class=\"ui-li-count\">$"+lista[i].price+" </span> </li>";
                     $( "#listItem" ).append( itemLi);
