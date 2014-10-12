@@ -20,50 +20,17 @@
 		});		
 		
     </script>
-	<style>	
 
-@media ( min-width: 20em ) {
-	/* Show the table header rows and set all cells to display: table-cell */
-	.my-custom-breakpoint20 td,
-	.my-custom-breakpoint20 th,
-	.my-custom-breakpoint20 tbody th,
-	.my-custom-breakpoint20 tbody td,
-	.my-custom-breakpoint20 thead td,
-	.my-custom-breakpoint20 thead th {
-		display: table-cell;
-		margin: 0;
-	}
-	/* Hide the labels in each cell */
-	.my-custom-breakpoint20 td .ui-table-cell-label,
-	.my-custom-breakpoint20 th .ui-table-cell-label {
-		display: none;
-	}
-}
-
-.th-tabla-thead thead th {    
-    background-color: #fff;
-}
-
-	.titulo3 {text-decoration:underline;text-shadow: 5px 5px 5px #aaa;}
-	
-	.table-sombra{
-   /*background-color: #ddd;*/
-  /* width: 300px;*/
-   padding: 10px;
-   
-   box-shadow: 2px 2px 2px #333;
-   -webkit-box-shadow: 2px 2px 2px #333;
-   -moz-box-shadow: 2px 2px 2px #333;
-} 
-	</style>
 </head>
 
 <body>
 
 <div data-role="page" id="foo">
     
-	<div data-role="header">
+	<div data-role="header" data-position="fixed" data-theme="a">
+    <h1> </h1>
     <a href="#panelMenu" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
+    
 		
 	</div><!-- /header -->
 
@@ -73,7 +40,7 @@
 		
 	</div><!-- /content -->
 
-	<div data-role="footer" data-position="fixed" data-id="footer">
+	<div data-role="footer" data-position="fixed" data-id="footer" data-theme="a">
 		<table width="100%" >
           <tr> 
             <td width="33%" align="left"> <img src="img/logo--hackathon.png" width="110" height="60" /> </td>
@@ -84,7 +51,7 @@
 	</div><!-- /footer -->
 </div><!-- /page -->
 
-<div data-role="panel" id="panelMenu" data-theme="a" data-display="overlay">
+<div data-role="panel" id="panelMenu" data-theme="b" data-display="overlay">
 
 					<ul id="menu" data-role="listview">
 						<li><a href="#saldo">Productos</a></li>
