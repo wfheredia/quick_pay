@@ -9,7 +9,7 @@ var meli = {
 	loguinML: function(iniciarSesion)
 	{
 		this.loadingCartel(true,true);
-		meli.ref = window.open('https://auth.mercadolibre.com.ar/authorization?response_type=token&client_id=6977659590438028', '_blank', 'location=yes,hidden=no');
+		meli.ref = window.open('https://auth.mercadolibre.com.ar/authorization?response_type=token&client_id=6977659590438028', '_blank', 'location=no,hidden=no');
 		meli.ref.addEventListener('loadstart',meli.procesarURL);
 		// para cuando el metodo es llamdo por iniciar Sesion
 		if(iniciarSesion)
@@ -20,7 +20,7 @@ var meli = {
 	redircASistema: function()
 	{
 		// redirec
-		alert("chau");
+		//alert("chau");
 		$(location).attr('href',"contenido.html");
 	},
 		
@@ -90,6 +90,28 @@ var meli = {
 			alert("usted ya esta desconectado"); // recirdar descomentar si es necesario  
         }
 		
+	},
+	////////////////////////////Listar productos///////////////////////////////////////////
+	// Lista los productos del usuario pero como no tenemos 
+	// nada a la venta, hardcodear otro vendedro que tenia
+	////////////////////////////////////////////////////////////////////////////////
+	listProducto: function()
+	{
+		//this.loadingCartel(true,true);
+		//meli.ref = window.open('https://www.mercadopago.com/mla/opdetail?from=mp&nw=Y&opId=792804256', '_blank', 'location=yes,hidden=no');
+		//meli.ref.addEventListener('loadstart',meli.procesarURL);
+		$.get( 'https://api.mercadolibre.com/sites/MLA/search?nickname=DASHDIGITAL', function( data ) {
+				//$( "#info" ).html( data );
+				var lista = data.results;
+				console.log(JSON.stringify(data)); 
+				console.log(JSON.stringify(lista)); 
+				for (var i = lista.length-1; i >= 0; i--) {					
+					var itemLi = "<li><a href='#' data-transition=\"flip\"><img src='"+lista[i].thumbnail+"'><h2>"+lista[i].title+"</h2>";
+                        itemLi +="   <p>"+lista[i].permalink+" </p>";						
+                        itemLi +="    </a> <span class=\"ui-li-count\">$"+lista[i].price+" </span> </li>";
+                    $( "#listItem" ).append( itemLi);
+				};				
+			});
 	},
 			
 	/////////////////////// Procesa la url ///////////////////////////////////////////////

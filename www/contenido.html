@@ -12,7 +12,7 @@
    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.4.min.css" />
    <script type="text/javascript" src="js/jquery-2.1.1.min.js"> </script>
    <script type="text/javascript" src="js/jquery.mobile-1.4.4.min.js"> </script>
-   
+   <script type="text/javascript" src="js/melilib.js"></script>
    
      <script type="text/javascript">
 		$(function() {
@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body onLoad="meli.listProducto()">
 
 <div data-role="page" id="contenido">
     
@@ -87,47 +87,8 @@
 	<div data-role="content">
     
     
-        <ul data-role="listview" data-inset="true" data-count-theme="b">
-           <li data-role="list-divider"> Mis productos </li>
-           <li> <a  href=""> <img src="img/fuente-pc-sentey-erp750ps-750w-reales-gamer-data-computacion-13850-MLA20081685681_042014-O.jpg"  />                 
-                         <h2> Fuente Pc Sentey 750 w </h2>
-                         <p> Fuente Pc Sentey Erp750ps 750w Reales Gamer Data Computacion </p>
-                         </a>
-                          <span class="ui-li-count">$400 </span></li>
-                         
-           <li><a href="#">
-                            <img src="img/disco-rigido-ide-para-pc-computadora-250-gb-western-digital-14964-MLA20092730087_052014-O.jpg">
-                            <h2>Disco Rigido 250gb WD</h2>
-                            <p>Disco Rigido 2,5 250 Gb Ide
-							Western Digital
-							Modelo: WD2500JB
-							PC</p>
-                            </a>
-                            <span class="ui-li-count">$1500 </span>
-           </li>
-           
-           <li><a href="#">
-                          <img src="img/cooler-fan-para-computadoras-cpu-gabinete-atx-8x8-molex-4057-MLA102425763_7491-O.jpg">
-                          <h2>Cooler fan</h2>
-                          <p>Cooler Fan Para Computadoras Cpu Gabinete Atx 8x8 Molex</p></a>
-                           <span class="ui-li-count">$39 </span>
-           </li>
-    
-   		   <li><a href="#">
-        				  <img src="img/computadora-pc-pentium-4-hd-80gb-1gb-ram-garantia-1-ano-15505-MLA20103701805_052014-O.jpg">
-     					  <h2>Computadora pentium 4x</h2>
-    					  <p>MEMORIA: 1GB RAM
-DISCO: 80Gb
-sonido
-video
-red
-usb
-lectora CD
-IMPECABLE!
-LISTA PARA USAR, CONECTARSE Y NAVEGAR
-GARANTIA: 12 MESES!</p></a>
-                           <span class="ui-li-count" data-theme="b">$950 </span>
-    		</li>
+        <ul data-role="listview" data-inset="true" data-count-theme="b" id="listItem">
+           <li data-role="list-divider"> Mis productos </li>        
         
         </ul>
     

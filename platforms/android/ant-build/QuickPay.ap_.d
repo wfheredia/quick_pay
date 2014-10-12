@@ -366,6 +366,10 @@ C:\proyecto\quick_pay\platforms\android\assets\www\fonts\font-awesome-4.2.0\font
 C:\proyecto\quick_pay\platforms\android\assets\www\fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.svg \
 C:\proyecto\quick_pay\platforms\android\assets\www\fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.ttf \
 C:\proyecto\quick_pay\platforms\android\assets\www\fonts\font-awesome-4.2.0\fonts\fontawesome-webfont.woff \
+C:\proyecto\quick_pay\platforms\android\assets\www\img\computadora-pc-pentium-4-hd-80gb-1gb-ram-garantia-1-ano-15505-MLA20103701805_052014-O.jpg \
+C:\proyecto\quick_pay\platforms\android\assets\www\img\cooler-fan-para-computadoras-cpu-gabinete-atx-8x8-molex-4057-MLA102425763_7491-O.jpg \
+C:\proyecto\quick_pay\platforms\android\assets\www\img\disco-rigido-ide-para-pc-computadora-250-gb-western-digital-14964-MLA20092730087_052014-O.jpg \
+C:\proyecto\quick_pay\platforms\android\assets\www\img\fuente-pc-sentey-erp750ps-750w-reales-gamer-data-computacion-13850-MLA20081685681_042014-O.jpg \
 C:\proyecto\quick_pay\platforms\android\assets\www\img\logo--hackathon.png \
 C:\proyecto\quick_pay\platforms\android\assets\www\img\logo-quick-pay-hackathon.png \
 C:\proyecto\quick_pay\platforms\android\assets\www\img\logo.png \
