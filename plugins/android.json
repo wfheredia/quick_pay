@@ -17,6 +17,10 @@
                         {
                             "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -42,6 +46,10 @@
                         },
                         {
                             "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
                             "count": 1
                         }
                     ],
@@ -550,6 +558,9 @@
             "PACKAGE_NAME": "com.mercadolibre.quickpay"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.mercadolibre.quickpay"
+        },
+        "org.apache.cordova.vibration": {
             "PACKAGE_NAME": "com.mercadolibre.quickpay"
         }
     },
