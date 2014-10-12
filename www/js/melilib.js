@@ -1,0 +1,116 @@
+
+
+
+var meli = {
+	ref:null,
+	apiUrl:"https://api.mercadolibre.com",
+	
+	// ########### Identificarse LOGUIN ################
+	loguinML: function(iniciarSesion)
+	{
+		this.loadingCartel(true,true);
+		meli.ref = window.open('https://auth.mercadolibre.com.ar/authorization?response_type=token&client_id=6977659590438028', '_blank', 'location=yes,hidden=no');
+		meli.ref.addEventListener('loadstart',meli.procesarURL);
+		// para cuando el metodo es llamdo por iniciar Sesion
+		if(iniciarSesion)
+		{
+			meli.ref.addEventListener('exit',meli.redircASistema);	
+		}	
+	},
+	redircASistema: function()
+	{
+		// redirec
+		alert("chau");
+		$(location).attr('href',"contenido.html");
+	},
+		
+	// /////////////////// Cerrar seccion  ///////////////////////////////////////////////
+	// Cierra la sección limpiando las variables de sección y borrando cualquier  cookie, 
+	// esto lo consigue abriendo una ventana extra  con parámetros especifico (clearcache=yes,clearsessioncache=yes) 
+	// y tambien borra localStorage 
+	///////////////////////////////////////////////////////////////////////////////////////
+	logout: function()
+	{
+		
+		this.loadingCartel(true,true,"Desconectando...");
+		
+		meli.ref = window.open('https://auth.mercadolibre.com.ar/oauth/images/auth/no_existe_app.jpg', '_blank', 'location=yes,hidden=yes,clearcache=no,clearsessioncache=no');
+		meli.ref.addEventListener('loadstart',meli.procesarURL);	
+		// recorre el localStorage para borrar todos los datos
+		for(var i=0, t=localStorage.length; i < t; i++) {
+			key = localStorage.key(i);
+			localStorage.removeItem(key);			
+		}
+	},
+
+	// /////////////////// Procesa la url ///////////////////////////////////////////////
+	// En caso de loguin: cierra la ventana, toma variables GET y guarda  en el localStorage.
+	// en caso de logaut: cierra la ventan. 
+	// URL de redireccionamiento en caso de Loguin exitoso  (Redirect URI)
+	// https://a248.e.akamai.net/secure.mlstatic.com/org-img/commons/logo-mercadolibre-new.png
+	// URL de Cerrar seccion 
+	// https://auth.mercadolibre.com.ar/oauth/images/auth/no_existe_app.jpg
+	///////////////////////////////////////////////////////////////////////////////////////
+	procesarURL: function (event)
+	{					
+	    var urlObj = $.mobile.path.parseUrl(event.url);
+		
+		
+		//Muestra WebViews solo cuando está el formulario listo **************
+		if("www.mercadolibre.com" == urlObj.hostname )
+	    {               
+			// Pausa para mostrar WebViews, cuando termine el rendeisado y no muestre la página en blanco durante mucho tiemo
+			window.setTimeout(function(){
+								meli.ref.show();
+								meli.loadingCartel(false,false,"");
+							},2000);
+        }
+		
+		// en caso de exito en el loguin ************************
+	    if("logo-mercadolibre-new.png" == urlObj.filename )
+	    { 		
+			var getArray = urlObj.hash.substr(1).split('&');			
+			//access_token=APP_USR-******
+			//expires_in=216***
+			//user_id=408***
+			//domains=a248.e.akamai.net
+			for(var i=0; i < getArray.length; i++)
+			{
+				var etiquetaYcontenido = getArray[i].split('=');				
+				localStorage[etiquetaYcontenido[0]] = etiquetaYcontenido[1];
+			}			
+			 meli.ref.close();			
+        }
+		
+		// Cuando cierra conexión logout *************************
+		if("no_existe_app.jpg" == urlObj.filename )
+	    {          
+            meli.ref.close();
+			meli.loadingCartel(false,false,"");
+			alert("usted ya esta desconectado"); // recirdar descomentar si es necesario  
+        }
+		
+	},
+			
+	/////////////////////// Procesa la url ///////////////////////////////////////////////
+	//  cartel de cargando    
+	//////////////////////////////////////////////////////////////////////////////////////
+	loadingCartel:function(estado,textVisible,msgText) 
+	{		
+		// Valor por defecto 
+		msgText || (msgText = "Conectando…"); 		
+		
+		if(estado) //muestra el cartelito
+		{					
+			$.mobile.loading( "show", {
+					text: msgText,
+					textVisible: textVisible
+			});
+		}
+		else // oculta el cartelito 
+		{
+			$.mobile.loading("hide");
+		}
+		
+	}
+};

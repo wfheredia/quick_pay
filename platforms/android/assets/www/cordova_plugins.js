@@ -19,6 +19,13 @@ module.exports = [
             "navigator.notification",
             "navigator"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
+        "id": "org.apache.cordova.inappbrowser.inappbrowser",
+        "clobbers": [
+            "window.open"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -26,7 +33,8 @@ module.exports.metadata =
 {
     "com.chariotsolutions.nfc.plugin": "0.5.1",
     "com.phonegap.plugins.barcodescanner": "2.0.0",
-    "org.apache.cordova.vibration": "0.3.11"
+    "org.apache.cordova.vibration": "0.3.11",
+    "org.apache.cordova.inappbrowser": "0.5.2"
 }
 // BOTTOM OF METADATA
 });
